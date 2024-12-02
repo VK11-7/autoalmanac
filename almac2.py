@@ -1,25 +1,42 @@
 import streamlit as st
-import schedule
-import time
-from datetime import datetime
+import pywhatkit as kit
+from datetime import datetime, timedelta
 
-# WhatsApp link format: https://wa.me/<phone_number>?text=<message>
-whatsapp_number = "+918438039821"  # Replace with your phone number
-message = "Hello, this is a message from Streamlit!"
+# Streamlit UI
+st.title("Send WhatsApp Message at a Specific Time")
 
-# Define the function to show the WhatsApp message link
-def show_whatsapp_link():
-    st.markdown(f"Click [here](https://wa.me/{whatsapp_number}?text={message}) to send a WhatsApp message!")
+# Input for phone number, message, and time
+phone_number = "+918438039821"
+message = "Moonji"
+time_input = "23:50"
 
-# Scheduler function to run every day at a specific time (e.g., 10:30 AM)
-def schedule_message():
-    schedule.every().day.at("23:35").do(show_whatsapp_link)  # Set the desired time here (HH:MM format)
+# Function to schedule and send the message
+def schedule_message(phone_number, message, send_time):
+    # Get the current time and compare
+    now = datetime.now()
+    selected_time = datetime.combine(now.date(), send_time)
 
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
+    # If the selected time is already passed today, schedule it for the next day
+    if selected_time < now:
+        selected_time += timedelta(days=1)
 
-# Run the scheduler in the background when the Streamlit app starts
-if st.button("Start Scheduler"):
-    st.write("Scheduler started. The link will be displayed at 10:30 AM every day.")
-    schedule_message()
+    # Send WhatsApp message automatically
+    kit.sendwhatmsg(phone_number, message, selected_time.hour, selected_time.minute)
+
+    return f"Message scheduled to be sent at {selected_time.strftime('%H:%M:%S')}."
+
+# Button to schedule the message
+if st.button("Schedule Message"):
+    if phone_number and message and time_input:
+        try:
+            # Validate the time input format (HH:MM)
+            send_time = datetime.strptime(time_input, "%H:%M").time()
+
+            # Call the function to schedule the message
+            result = schedule_message(phone_number, message, send_time)
+            st.write(result)
+            st.success("WhatsApp message will be sent automatically at the scheduled time!")
+        except ValueError:
+            st.error("Invalid time format. Please enter the time in HH:MM format.")
+    else:
+        st.error("Please fill in all the fields.")
