@@ -1,15 +1,19 @@
 import streamlit as st
-from whatsapp_chatbot import WhatsappBot
 
-def main():
-    st.title("WhatsApp Message Sender")
+# Title of the app
+st.title("Streamlit with WhatsApp Web Integration")
 
-    phone_number = st.text_input("Phone Number")
-    message = st.text_area("Message")
+# Split the layout into two columns
+col1, col2 = st.columns([3, 7])
 
-    if st.button("Send Message"):
-        bot = WhatsappBot()
-        bot.send_message(phone_number, message)
+# Left column for app features
+with col1:
+    st.subheader("App Features")
+    st.write("Here you can add other functionalities or elements of your app.")
 
-if __name__ == "__main__":
-    main()
+# Right column for WhatsApp Web
+with col2:
+    st.subheader("WhatsApp Web")
+    st.info("Note: WhatsApp Web may not load in all browsers due to embedding restrictions.")
+    whatsapp_url = "https://web.whatsapp.com"
+    st.components.v1.iframe(whatsapp_url, height=600, scrolling=True)
