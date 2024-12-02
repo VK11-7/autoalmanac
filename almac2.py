@@ -1,13 +1,20 @@
 import streamlit as st
 
 # Title of the app
-st.title("Streamlit with WhatsApp Integration")
+st.title("Streamlit WhatsApp Chat Integration")
 
-st.write("Click the button below to open WhatsApp Web in a new tab.")
+# Input for phone number
+phone_number = st.text_input("Enter the phone number (with country code, e.g., +919876543210):")
 
-# Button to open WhatsApp Web
-if st.button("Open WhatsApp Web"):
-    st.markdown(
-        '<a href="https://web.whatsapp.com" target="_blank">Open WhatsApp Web</a>',
-        unsafe_allow_html=True,
-    )
+# Generate the link and button
+if phone_number:
+    whatsapp_url = f"https://web.whatsapp.com/send?phone={phone_number}"
+    
+    # Button to open the specific WhatsApp chat
+    if st.button("Open WhatsApp Chat"):
+        st.markdown(
+            f'<a href="{whatsapp_url}" target="_blank">Open WhatsApp Chat</a>',
+            unsafe_allow_html=True,
+        )
+else:
+    st.write("Enter a phone number above to enable the chat button.")
