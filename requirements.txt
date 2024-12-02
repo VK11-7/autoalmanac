@@ -1,5 +1,4 @@
 pywhatkit
-pyautogui
-mouseinfo
+pyvirtualdisplay
 streamlit
 datetime
