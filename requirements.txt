@@ -1,4 +1,1 @@
 streamlit
-pywhatkit
-pyautogui
-datetime
