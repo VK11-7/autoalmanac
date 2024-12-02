@@ -1,22 +1,8 @@
-import pyautogui
-import time
-import schedule
+import streamlit as st
 
-# Function to send a WhatsApp message
-def send_whatsapp_message():
-    # You need to have WhatsApp Web open and the group selected
-    # The following keys are specific to the layout of your screen, you may need to adjust.
-    time.sleep(2)  # Give some time for WhatsApp Web to be in focus
-    pyautogui.write('Hello, this is a scheduled message!')  # Write the message
-    pyautogui.press('enter')  # Send the message
+# WhatsApp link format: https://wa.me/<phone_number>?text=<message>
+whatsapp_number = "+918438039821"  # Replace with your phone number
+message = "Hello, this is a message from Streamlit!"
 
-# Function to schedule the message
-def schedule_message():
-    schedule.every().day.at("10:30").do(send_whatsapp_message)  # Schedule for 10:30 AM daily
-
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-# Start scheduling the message
-schedule_message()
+# Create a clickable link
+st.markdown(f"Click [here](https://wa.me/{whatsapp_number}?text={message}) to send a WhatsApp message!")
