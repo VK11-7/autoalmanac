@@ -7,8 +7,8 @@ st.title("Send WhatsApp Message at a Specific Time")
 
 # Input for phone number, message, and time
 phone_number = "+918438039821"
-message = "Moonji"
-time_input = "23:59"
+message = "Moring Moonji"
+time_input = "00:01"
 
 # Function to schedule and send the message
 def schedule_message(phone_number, message, send_time):
