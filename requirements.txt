@@ -2,3 +2,4 @@ pywhatkit
 pyvirtualdisplay
 streamlit
 datetime
+xvfb
