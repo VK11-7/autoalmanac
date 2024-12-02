@@ -1,13 +1,16 @@
 import streamlit as st
 
-# WhatsApp group link
-group_link = "https://chat.whatsapp.com/GrHQES9rLrh1Wc1nPqnDCw"
+# Title of the app
+st.title("Open WhatsApp Web")
 
-# Redirect the user to the WhatsApp group chat
+# WhatsApp Web URL
+whatsapp_web_url = "https://web.whatsapp.com/"
+
+# Automatically redirect to WhatsApp Web
 st.markdown(
     f"""
     <script>
-        window.location.href = "{group_link}";
+        window.location.href = "{whatsapp_web_url}";
     </script>
     """,
     unsafe_allow_html=True,
