@@ -13,7 +13,7 @@ def show_whatsapp_link():
 
 # Scheduler function to run every day at a specific time (e.g., 10:30 AM)
 def schedule_message():
-    schedule.every().day.at("10:30").do(show_whatsapp_link)  # Set the desired time here (HH:MM format)
+    schedule.every().day.at("23:07").do(show_whatsapp_link)  # Set the desired time here (HH:MM format)
 
     while True:
         schedule.run_pending()
