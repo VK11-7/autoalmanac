@@ -1,3 +1,9 @@
+from pyvirtualdisplay import Display
+
+# Start a virtual display
+display = Display(visible=0, size=(1024, 768))
+display.start()
+
 import streamlit as st
 import pywhatkit as kit
 import datetime
@@ -24,3 +30,4 @@ if st.button("Send Message"):
     hour = send_time.hour
     minute = send_time.minute
     send_whatsapp_message(group_id, message, hour, minute)
+display.stop()
