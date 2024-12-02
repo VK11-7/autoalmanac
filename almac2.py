@@ -1,11 +1,15 @@
 import streamlit as st
+from whatsapp_chatbot import WhatsappBot
 
 def main():
-    st.title("WhatsApp Web in Streamlit")
+    st.title("WhatsApp Message Sender")
 
-    whatsapp_web_url = "https://web.whatsapp.com/"
+    phone_number = st.text_input("Phone Number")
+    message = st.text_area("Message")
 
-    st.iframe(whatsapp_web_url, width=600, height=600)
+    if st.button("Send Message"):
+        bot = WhatsappBot()
+        bot.send_message(phone_number, message)
 
 if __name__ == "__main__":
     main()
