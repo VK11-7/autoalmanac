@@ -1,5 +1,5 @@
-pywhatkit
-pyvirtualdisplay
+webdriver_manager
 streamlit
 datetime
-xvfb
+selenium
+time
