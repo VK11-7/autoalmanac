@@ -4,7 +4,7 @@ import time
 from datetime import datetime
 
 # WhatsApp link format: https://wa.me/<phone_number>?text=<message>
-whatsapp_number = "+1234567890"  # Replace with your phone number
+whatsapp_number = "+918438039821"  # Replace with your phone number
 message = "Hello, this is a message from Streamlit!"
 
 # Define the function to show the WhatsApp message link
@@ -13,7 +13,7 @@ def show_whatsapp_link():
 
 # Scheduler function to run every day at a specific time (e.g., 10:30 AM)
 def schedule_message():
-    schedule.every().day.at("23:07").do(show_whatsapp_link)  # Set the desired time here (HH:MM format)
+    schedule.every().day.at("23:35").do(show_whatsapp_link)  # Set the desired time here (HH:MM format)
 
     while True:
         schedule.run_pending()
