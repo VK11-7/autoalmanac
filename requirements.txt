@@ -1,2 +1,5 @@
 streamlit
-webbrowser
+pywhatkit
+pyautogui
+datetime
+time
