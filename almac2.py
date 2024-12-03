@@ -3,14 +3,14 @@ import pywhatkit as kit
 # Function to send a WhatsApp message
 def send_whatsapp_message():
     # Replace with recipient's phone number (including country code)
-    phone_number = "+1234567890"  # Example: "+911234567890" for India
+    phone_number = "+918438039821"  # Example: "+911234567890" for India
 
     # Replace with your message
     message = "Hello! This is a test message sent using Python."
 
     # Set the time (24-hour format) to send the message
-    hour = 14  # Example: 2 PM
-    minute = 30  # Example: 30 minutes past 2 PM
+    hour = 10  # Example: 2 PM
+    minute = 46  # Example: 30 minutes past 2 PM
 
     try:
         # Schedule the message
