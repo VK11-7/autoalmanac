@@ -1,25 +1,23 @@
-import webbrowser
-import time
-from datetime import datetime
+import pywhatkit as kit
 
-def open_whatsapp_at(scheduled_time):
-    """
-    Opens WhatsApp Web at the specified time.
-    
-    Args:
-        scheduled_time (str): Time in HH:MM 24-hour format.
-    """
-    # Get current time
-    now = datetime.now().strftime("%H:%M")
-    print(f"Current time: {now}. Scheduled time: {scheduled_time}.")
-    
-    while now != scheduled_time:
-        time.sleep(30)  # Check every 30 seconds
-        now = datetime.now().strftime("%H:%M")
-    
-    print("Opening WhatsApp Web...")
-    webbrowser.open("https://web.whatsapp.com")
+# Function to send a WhatsApp message
+def send_whatsapp_message():
+    # Replace with recipient's phone number (including country code)
+    phone_number = "+1234567890"  # Example: "+911234567890" for India
 
-# Example usage:
-# Replace '14:30' with your desired time in HH:MM format
-open_whatsapp_at("10:41")
+    # Replace with your message
+    message = "Hello! This is a test message sent using Python."
+
+    # Set the time (24-hour format) to send the message
+    hour = 14  # Example: 2 PM
+    minute = 30  # Example: 30 minutes past 2 PM
+
+    try:
+        # Schedule the message
+        kit.sendwhatmsg(phone_number, message, hour, minute)
+        print("Message scheduled successfully!")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+# Call the function
+send_whatsapp_message()
