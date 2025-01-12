@@ -367,7 +367,8 @@ msg = message.format(Date=Date, Weekday=Weekday, Sunrise=Sunrise, Sunset=Sunset,
 
 st.code(msg)
 #st.write(dd)
-
+st.subheader("Thank You!😊")
+st.write('©️ VK 2024 onward')
 # TELEGRAM_BOT_TOKEN = "7965698138:AAHvzdIZbZH9Uu9k8wmBevSev14iLwEgEAo"
 # TELEGRAM_CHAT_ID = "817330946"
 
