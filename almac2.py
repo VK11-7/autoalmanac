@@ -142,7 +142,7 @@ Subscribe to our YouTube channel - https://youtube.com/c/SimplyAyurveda
     st.code(msg)
     if st.button("Send to Telegram"):
         TELEGRAM_BOT_TOKEN = "7965698138:AAHvzdIZbZH9Uu9k8wmBevSev14iLwEgEAo"
-        TELEGRAM_CHAT_ID = "817330946"
+        TELEGRAM_CHAT_ID = "-4741545165"
 
         url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
         payload = {"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "Markdown"}
